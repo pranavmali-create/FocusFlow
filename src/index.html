@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FocusFlow — Minimal Productivity Dashboard</title>
+
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body
+    class="bg-gray-100 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100 font-sans"
+  >
+    <div class="max-w-3xl mx-auto p-6 space-y-8">
+      <header class="flex items-center justify-between gap-4">
+        <div class="flex-1 bg-white dark:bg-gray-800 shadow rounded-2xl p-5">
+          <h1 class="text-lg font-semibold leading-tight">
+            “Focus on being productive instead of busy.”
+          </h1>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            – Tim Ferriss
+          </p>
+        </div>
+
+        <button
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          class="h-10 w-10 flex items-center justify-center bg-white dark:bg-gray-800 shadow rounded-lg"
+        >
+          <span id="themeIcon">🌙</span>
+        </button>
+      </header>
+
+      <main class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section
+          class="bg-white dark:bg-gray-800 shadow rounded-2xl p-5 flex flex-col"
+        >
+          <h2 class="text-lg font-semibold mb-3">To-Do</h2>
+
+          <div class="flex gap-2 mb-4">
+            <input
+              id="todoInput"
+              type="text"
+              placeholder="Add a task..."
+              class="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-indigo-300"
+            />
+            <button
+              id="addTodoBtn"
+              class="px-4 py-2 rounded-lg bg-indigo-600 text-white"
+            >
+              Add
+            </button>
+          </div>
+
+          <ul id="todoList" class="space-y-2 overflow-auto max-h-64 pr-1"></ul>
+
+          <div
+            class="mt-4 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+          >
+            <span id="todoCount">0 tasks</span>
+            <div class="flex gap-2">
+              <button
+                id="clearCompleted"
+                class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-700"
+              >
+                Clear completed
+              </button>
+              <button
+                id="clearAll"
+                class="px-3 py-1 rounded bg-red-100 text-red-700 dark:bg-red-900/30"
+              >
+                Clear all
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="bg-white dark:bg-gray-800 shadow rounded-2xl p-5 flex flex-col items-center"
+        >
+          <h2 class="text-lg font-semibold mb-3">Pomodoro</h2>
+
+          <div class="flex flex-col items-center gap-2">
+            <div
+              id="modeLabel"
+              class="text-sm text-gray-500 dark:text-gray-400"
+            >
+              Work
+            </div>
+            <div
+              id="timer"
+              class="text-5xl font-mono bg-gray-100 dark:bg-gray-900 px-6 py-4 rounded-xl shadow-inner"
+            >
+              25:00
+            </div>
+          </div>
+
+          <div class="mt-4 flex gap-2">
+            <button
+              id="startPause"
+              class="px-4 py-2 rounded-lg bg-green-500 text-white"
+            >
+              Start
+            </button>
+            <button
+              id="resetTimer"
+              class="px-4 py-2 rounded-lg bg-yellow-500 text-white"
+            >
+              Reset
+            </button>
+          </div>
+
+          <div class="mt-4 w-full">
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+              Presets
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="preset px-3 py-1 rounded bg-gray-100 dark:bg-gray-700"
+                data-min="25"
+              >
+                25
+              </button>
+              <button
+                class="preset px-3 py-1 rounded bg-gray-100 dark:bg-gray-700"
+                data-min="15"
+              >
+                15
+              </button>
+              <button
+                class="preset px-3 py-1 rounded bg-gray-100 dark:bg-gray-700"
+                data-min="5"
+              >
+                5
+              </button>
+              <button
+                class="preset px-3 py-1 rounded bg-gray-100 dark:bg-gray-700"
+                data-min="50"
+              >
+                50
+              </button>
+            </div>
+            <div class="text-xs text-gray-400 mt-2">minutes (click to set)</div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
